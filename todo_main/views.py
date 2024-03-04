@@ -7,7 +7,10 @@ def home(request):
     #check tak model in terminal
     # print(tasks)
     
+    completed_tasks = Task.objects.filter(is_completed=True)
+    # print(completed_tasks)
     context = {
-        'tasks':tasks
+        'tasks':tasks,
+        'completed_tasks':completed_tasks,
     }
     return render(request,'home.html',context)
